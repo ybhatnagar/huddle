@@ -1,0 +1,10 @@
+<div>
+  <h2 class="cluster-title">Clusters</h2>
+  <div>
+    <div *ngFor="let cluster of clusterList" class="cluster-wrapper">
+      <cluster-card [cluster]="cluster"></cluster-card>
+    </div>
+  </div>
+
+  <button class="btn btn-primary" [disabled]="!isSelected()" (click)="onAnalyise()">Analyise</button>
+</div>
