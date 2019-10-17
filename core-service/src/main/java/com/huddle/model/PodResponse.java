@@ -1,4 +1,4 @@
-package com.huddle.contracts;
+package com.huddle.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
