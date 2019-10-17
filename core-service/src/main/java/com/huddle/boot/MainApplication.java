@@ -1,10 +1,15 @@
-package com.huddle;
+package com.huddle.boot;
 
+import com.huddle.config.AppConfig;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
 
+@Slf4j
 @SpringBootApplication
-public class Application {
+@Import(value = { AppConfig.class})
+public class MainApplication {
 
 	public static void main(String[] args) {
 //		ObjectMapper  mapper = new ObjectMapper();
@@ -19,7 +24,7 @@ public class Application {
 //		} catch ( Exception e){
 //
 //		}
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(MainApplication.class, args);
 	}
 
 }
