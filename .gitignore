@@ -35,3 +35,6 @@ service/charts/*/charts/
 
 ###Mac Directory Cache File###
 .DS_Store
+
+###DB Files###
+*/db/
