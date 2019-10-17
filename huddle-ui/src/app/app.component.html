@@ -1,0 +1,35 @@
+<div class="main-container">
+  <header class="header-6">
+    <div class="branding">
+      <a href="/" class="nav-link">
+        <clr-icon shape="vm-bug"></clr-icon>
+        <span class="title">Huddle</span>
+      </a>
+    </div>
+    <div class="header-actions">
+      <!-- <clr-dropdown>
+            <button class="nav-icon" clrDropdownTrigger aria-label="toggle settings menu">
+                <clr-icon shape="cog"></clr-icon>
+                <clr-icon shape="caret down"></clr-icon>
+            </button>
+            <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+                <a href="..." clrDropdownItem>About</a>
+                <a href="..." clrDropdownItem>Preferences</a>
+                <a href="..." clrDropdownItem>Log out</a>
+            </clr-dropdown-menu>
+        </clr-dropdown> -->
+    </div>
+  </header>
+
+  <div class="content-container">
+    <clr-vertical-nav [clrVerticalNavCollapsible]="true" [(clrVerticalNavCollapsed)]="collapsed" class="left-nav-links">
+      <a clrVerticalNavLink [routerLink]="[ '/clusters' ]" routerLinkActive="active">
+        <clr-icon clrVerticalNavIcon shape="home"></clr-icon>
+        Clusters
+      </a>
+    </clr-vertical-nav>
+    <div class="content-area">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

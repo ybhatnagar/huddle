@@ -1,0 +1,19 @@
+.recommendations {
+  display: flex;
+
+  .before-chart,
+  .after-chart {
+    flex: 2;
+  }
+
+  .recommendation-list {
+    flex: 1;
+    text-align: center;
+  }
+
+  .divider {
+    width: 0;
+    border-right: 1px solid grey;
+    margin: 0 50px;
+  }
+}
