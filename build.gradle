@@ -1,32 +1,70 @@
-plugins {
-	id 'org.springframework.boot' version '2.2.0.RELEASE'
-	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
-	id 'java'
-}
-
-group = 'com.huddle'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
-
-configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
+allprojects {
+	repositories {
+		jcenter()
 	}
 }
 
-repositories {
-	mavenCentral()
+allprojects {
+	group = 'com.huddle'
+	version = '1.0.0-SNAPSHOT'
 }
 
-dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-	//implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
-		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+subprojects {
+
+
+	buildscript {
+
+		ext {
+			springBootVersion = '2.1.2.RELEASE'
+		}
+
+		repositories {
+			mavenCentral()
+			jcenter()
+			maven {
+				url "https://plugins.gradle.org/m2/"
+			}
+		}
+		dependencies {
+			classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+			classpath "io.spring.gradle:dependency-management-plugin:1.0.6.RELEASE"
+		}
 	}
+
 }
 
-test {
-	useJUnitPlatform()
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'idea'
+
+	sourceCompatibility = JavaVersion.VERSION_1_8
+	targetCompatibility = JavaVersion.VERSION_1_8
+
+	ext {
+		springBootVersion = '2.1.2.RELEASE'
+		lombokVersion = '1.18.4'
+	}
+
+	repositories {
+		mavenCentral()
+	}
+
+	dependencies {
+		compile ("ch.qos.logback:logback-core:1.2.3")
+		annotationProcessor "org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}"
+
+		// java utilities
+		compileOnly("org.projectlombok:lombok:${lombokVersion}")
+		annotationProcessor("org.projectlombok:lombok:${lombokVersion}")
+		//inject annotations
+		compile('javax.inject:javax.inject:1')
+
+		//test
+		testCompileOnly("org.projectlombok:lombok:${lombokVersion}")
+		testAnnotationProcessor("org.projectlombok:lombok:${lombokVersion}")
+		testCompile("junit:junit")
+	}
+
 }
+
+
