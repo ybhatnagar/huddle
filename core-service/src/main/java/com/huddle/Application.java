@@ -1,13 +1,7 @@
 package com.huddle;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.huddle.contracts.ClusterResponse;
-import com.huddle.contracts.PodResponse;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.Arrays;
-import java.util.Collections;
 
 @SpringBootApplication
 public class Application {
