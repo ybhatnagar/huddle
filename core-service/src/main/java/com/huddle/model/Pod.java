@@ -5,6 +5,8 @@ import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+
 @Getter
 @Setter
 public class Pod extends Resource {
@@ -23,27 +25,8 @@ public class Pod extends Resource {
         systemPod=isSystem;
     }
 
-    public void joinedNode(Node parentNode){
-        this.parentNode = parentNode;
-        log.debug("Pod {} joins the Node {}", this, parentNode);
-    }
 
-    public void leftNode(){
-        this.parentNode = null;
-        log.debug("Pod {} left the Node {}", this, parentNode);
-    }
+    private List<PodInteractions> interactions;
 
-    @Override
-    public String toString() {
-        return "Pod{" +
-                "id=" + getId() +
-                ", request=" + request +
-                ", parentNode=" + (parentNode == null ? null:parentNode.getName()) +
-                ", name='" + this.getName() + '\'' +
-                '}';
-    }
-
-    public Pod clone() {
-        return new Pod(this.getId(), this.getName(), this.getRequest().getMemoryMB(), this.getRequest().getCpuMillicore(),this.systemPod);
-    }
+    String ip;
 }
