@@ -1,5 +1,6 @@
 package com.huddle.model;
 
+import com.huddle.model.dto.PodResponse;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

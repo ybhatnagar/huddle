@@ -1,6 +1,7 @@
 package com.huddle.controller;
 
 import com.huddle.model.ClusterResponse;
+import com.huddle.model.dto.PodResponse;
 import com.huddle.services.HuddleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class HuddleController {
 
     @Autowired
-    HuddleService huddleService;
+    private HuddleService huddleService;
 
     @GetMapping("/clusters")
-    ClusterResponse getClustersInfo(){
+    public ClusterResponse getClustersInfo() {
         return huddleService.getClusterInfo();
     }
 
+    @GetMapping("/pods")
+    public PodResponse[] getPodsInfo() {
+        return huddleService.getPodResponse();
+    }
 }
