@@ -1,0 +1,26 @@
+# Default values for borathon-app.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+
+replicaCount: 3
+image:
+  repository: cmbu-cicd-docker.artifactory.eng.vmware.com/borathon-app
+  tag: 3
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  port: 8080
+  name: borathon-app
+
+token: c93c4e5d-3cc7-4490-87e0-73593235975f
+
+resources:
+ limits:
+   cpu: 200m
+   memory: 1Gi
+ requests:
+   cpu: 200m
+   memory: 1Gi
+
