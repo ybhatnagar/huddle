@@ -1,4 +1,4 @@
-package com.huddle.interaction;
+package com.huddle.model;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package com.huddle.services;
+package com.huddle.interaction;
 
 import org.springframework.stereotype.Service;
 
