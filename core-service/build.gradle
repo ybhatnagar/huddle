@@ -1,13 +1,5 @@
-plugins {
-    id 'org.springframework.boot' version '2.2.0.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
-    id 'java'
-}
-
-group 'com.huddle'
-version '0.0.1-SNAPSHOT'
-
-sourceCompatibility = 1.8
+apply plugin: "org.springframework.boot"
+apply plugin: "io.spring.dependency-management"
 
 repositories {
     mavenCentral()
