@@ -25,6 +25,8 @@ public class HuddleService {
     }
 
     public List<GroupResponse> getGroups(K8SClusterResponse response){
+        //Iterate each node, generate list of GroupResponse, calculate score and get the list with max score
+
         return Collections.emptyList();
     }
 

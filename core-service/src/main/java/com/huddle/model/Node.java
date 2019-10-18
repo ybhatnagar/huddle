@@ -25,7 +25,7 @@ public class Node extends Resource{
 
     public boolean addPod(Pod pod) {
         pods.put(pod.getId(),pod);
-        pod.assignParent(this);
+        pod.assignParent(this.getId());
         return true;
     }
 
