@@ -1,5 +1,8 @@
 package com.huddle.services;
 
+import java.util.Collections;
+import java.util.List;
+
 import com.huddle.interaction.PurserService;
 import com.huddle.interaction.WavefrontService;
 import com.huddle.model.K8SClusterResponse;
@@ -21,9 +24,8 @@ public class HuddleService {
         return purserService.getClusterInfo();
     }
 
-    public GroupResponse getGroups(K8SClusterResponse response){
-        //TODO: do it.
-        return null;
+    public List<GroupResponse> getGroups(K8SClusterResponse response){
+        return Collections.emptyList();
     }
 
     public PodResponse[] getPodResponse() {
