@@ -24,11 +24,10 @@ public class HuddleController {
         return huddleService.getClusterInfo();
     }
 
-    @PostMapping("/clusters")
-    GroupResponse getNodeGroupping(K8SClusterResponse response){
+    @PostMapping("/clusters/group")
+    GroupResponse getNodeGrouping(K8SClusterResponse response){
         return huddleService.getGroups(response);
     }
-
 
     @GetMapping("/pods")
     public PodResponse[] getPodsInfo() {

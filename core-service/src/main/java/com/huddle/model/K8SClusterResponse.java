@@ -1,12 +1,6 @@
 package com.huddle.model;
 
-import com.huddle.model.dto.PodResponse;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.apache.catalina.Cluster;
 
 import java.util.List;
 
