@@ -27,7 +27,7 @@ public class ApplicationTests {
 		List<NodeInternal> nodeInternals = new ArrayList<>();
 		nodes.forEach(node -> {
 			List<Pod> pods = new ArrayList<>(node.getPods().values());
-			pods.stream().forEach(pod -> {
+			pods.forEach(pod -> {
 				pod.setSize(pod.calculateSize());
 			});
 			nodeInternals.add(new NodeInternal(node.getId(), node.getName(), pods));
