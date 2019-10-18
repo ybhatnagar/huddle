@@ -7,8 +7,8 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Capacity {
-    private long memoryMB;
     private long cpuMillicore;
+    private long memoryMB;
 
     public Capacity(long memoryMB, long cpuMillicore) {
         this.memoryMB = memoryMB;

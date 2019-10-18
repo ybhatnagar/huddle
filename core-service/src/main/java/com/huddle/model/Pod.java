@@ -21,18 +21,19 @@ public class Pod extends Resource {
     private Capacity limitCapacity;
     private Capacity requestCapacity;
     private List<PodInteraction> interactions;
+    private Double size;
 
     public Pod(String id, String name, String ip, long limitMemoryMB, long limitCpuMillicore, long requestMemoryMB, long requestCpuMillicore) {
         super(id, name);
         this.ip = ip;
-        this.limitCapacity = new Capacity(requestMemoryMB, requestCpuMillicore);
-        this.requestCapacity = new Capacity(limitMemoryMB, limitCpuMillicore);
+        this.requestCapacity = new Capacity(requestMemoryMB, requestCpuMillicore);
+        this.limitCapacity = new Capacity(limitMemoryMB, limitCpuMillicore);
         this.interactions = Collections.emptyList();
     }
 
-    public double getSize(){
-        long l1 = requestCapacity.getCpuMillicore() / limitCapacity.getCpuMillicore();
-        long l2 = requestCapacity.getMemoryMB() / limitCapacity.getMemoryMB();
+    public double calculateSize(){
+        double l1 = (double) requestCapacity.getCpuMillicore() /  (double)limitCapacity.getCpuMillicore();
+        double l2 =  (double)requestCapacity.getMemoryMB() /  (double)limitCapacity.getMemoryMB();
 
         return l1/l2;
     }

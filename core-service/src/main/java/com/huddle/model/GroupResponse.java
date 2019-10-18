@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Collections;
 import java.util.List;
 
 @Data
@@ -12,12 +13,14 @@ import java.util.List;
 public class GroupResponse {
 
     Long id;
-    List<NodeGrouping> groups;
+    List<NodeInternal> nodes = Collections.emptyList();
 
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class NodeGrouping {
-        List<Node> nodes;
+    public static class NodeInternal {
+        String id;
+        String name;
+        List<Pod> pods;
     }
 }
