@@ -6,6 +6,7 @@ import lombok.ToString;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Collections;
 import java.util.List;
 
 @Getter
@@ -26,6 +27,7 @@ public class Pod extends Resource {
         this.ip = ip;
         this.limitCapacity = new Capacity(requestMemoryMB, requestCpuMillicore);
         this.requestCapacity = new Capacity(limitMemoryMB, limitCpuMillicore);
+        this.interactions = Collections.emptyList();
     }
 
     public double getSize(){
@@ -54,6 +56,7 @@ public class Pod extends Resource {
                 ", requestCapacity=" + requestCapacity +
                 ", parentNode=" + (parentNode == null ? null:parentNode.getName()) +
                 ", name='" + this.getName() + '\'' +
+                ", interactions=" + interactions +
                 '}';
     }
 }

@@ -8,7 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PodInteractions {
-    Long podCount;
-    String name;
-    String ip;
+    long interactionCount;
+    String destinationName;
+    String destinationIp;
+    long latencyInMs;
 }

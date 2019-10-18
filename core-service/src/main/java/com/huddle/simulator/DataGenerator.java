@@ -1,11 +1,13 @@
 package com.huddle.simulator;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
 import com.huddle.model.Node;
 import com.huddle.model.Pod;
+import com.huddle.model.PodInteractions;
 
 public class DataGenerator {
     public static List<Node> generate(int nodes, int podOnEachNode) {
@@ -13,13 +15,20 @@ public class DataGenerator {
         for(int node=0; node < nodes; node++) {
             Node node1 = new Node(node+"", node+"");
             for (int pod=0; pod < podOnEachNode; pod++) {
-                boolean added = node1.addPod(generatePod(node+"_"+pod, node+"_"+pod));
+                Pod newPod = generatePod(node+"_"+pod, node+"_"+pod);
+                boolean added = node1.addPod(newPod);
                 if (!added)
                     break;
             }
             kubeEnv.add(node1);
         }
+        generatePodInteractions(kubeEnv);
         return kubeEnv;
+    }
+
+    private static void generatePodInteractions(List<Node> nodes) {
+        //Pick one pod and set random interactions with other pod
+        
     }
 
     private static Pod generatePod(String podId, String name) {
