@@ -2,7 +2,7 @@ package com.huddle.services;
 
 import com.huddle.interaction.PurserService;
 import com.huddle.interaction.WavefrontService;
-import com.huddle.model.ClusterResponse;
+import com.huddle.model.K8SClusterResponse;
 import com.huddle.model.GroupResponse;
 import com.huddle.model.dto.PodResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +17,11 @@ public class HuddleService {
     @Autowired
     private WavefrontService wavefrontService;
 
-    public ClusterResponse getClusterInfo() {
+    public K8SClusterResponse getClusterInfo() {
         return purserService.getClusterInfo();
     }
 
-    public GroupResponse getGroups(ClusterResponse response){
+    public GroupResponse getGroups(K8SClusterResponse response){
 
         //TODO: do it.
         return null;

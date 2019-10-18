@@ -3,7 +3,8 @@ package com.huddle.interaction;
 import java.util.Arrays;
 
 import com.huddle.http.RestClient;
-import com.huddle.model.ClusterResponse;
+import com.huddle.model.K8SClusterResponse;
+import com.huddle.model.K8SClusterResponse.K8SCluster;
 import com.huddle.model.dto.PodResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,11 +35,11 @@ public class PurserService {
         return responseEntity.getBody();
     }
 
-    public ClusterResponse getClusterInfo() {
+    public K8SClusterResponse getClusterInfo() {
         //TODO: actual call via restTemplate to the purser, to get actual info
-        ClusterResponse resp = new ClusterResponse();
+        K8SClusterResponse resp = new K8SClusterResponse();
 
-        ClusterResponse.ClusterInternal clusterInternal = new ClusterResponse.ClusterInternal();
+        K8SCluster k8SCluster = new K8SCluster();
 
         //PodResponse podResponse = new PodResponse("pod1", "node1", "10.112.31.3", "borathon");
         //PodResponse podResponse2 = new PodResponse("pod2", "node2", "10.112.31.5", "borathon");
@@ -46,9 +47,9 @@ public class PurserService {
         POD_TO_CLUSTER_RESP.apply(podResponse);
 
         //clusterInternal.setPods(Arrays.asList(podResponse, podResponse2));
-        clusterInternal.setClusterName("Staging-eng-services");
+        k8SCluster.setK8sClusterName("Staging-eng-services");
 
-        resp.setCluster(Arrays.asList(clusterInternal));
+        resp.setK8SCluster(Arrays.asList(k8SCluster));
         return resp;
     }
 }

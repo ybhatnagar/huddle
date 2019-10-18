@@ -1,6 +1,6 @@
 package com.huddle.controller;
 
-import com.huddle.model.ClusterResponse;
+import com.huddle.model.K8SClusterResponse;
 import com.huddle.model.GroupResponse;
 import com.huddle.model.dto.PodResponse;
 import com.huddle.services.HuddleService;
@@ -20,12 +20,12 @@ public class HuddleController {
     private HuddleService huddleService;
 
     @GetMapping("/clusters")
-    public ClusterResponse getClustersInfo() {
+    public K8SClusterResponse getClustersInfo() {
         return huddleService.getClusterInfo();
     }
 
     @PostMapping("/clusters")
-    GroupResponse getNodeGroupping(ClusterResponse response){
+    GroupResponse getNodeGroupping(K8SClusterResponse response){
         return huddleService.getGroups(response);
     }
 
