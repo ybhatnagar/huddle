@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { ClusterListService } from '../cluster-list.service';
 
 @Component({
-  moduleId: module.id,
   selector: 'recommendations',
   templateUrl: 'recommendations.component.html',
   styleUrls: ['recommendations.component.scss']
