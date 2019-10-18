@@ -28,55 +28,55 @@ public class DataGenerator {
 
     private static void generatePodInteractions(List<Node> nodes) {
         Node node1 = nodes.get(0);
-        Node node2 = nodes.get(0);
-        Node node3 = nodes.get(0);
-        Node node4 = nodes.get(0);
-        Node node5 = nodes.get(0);
+        Node node2 = nodes.get(1);
+        Node node3 = nodes.get(2);
+        Node node4 = nodes.get(3);
+        Node node5 = nodes.get(4);
 
-        Pod pod1_1 = node1.getPods().get(0);
-        Pod pod1_2 = node1.getPods().get(1);
+        Pod pod1_1 = node1.getPods().get("0_0");
+        Pod pod1_2 = node1.getPods().get("0_1");
 
-        Pod pod2_1 = node1.getPods().get(0);
-        Pod pod2_2 = node1.getPods().get(1);
+        Pod pod2_1 = node2.getPods().get("1_0");
+        Pod pod2_2 = node2.getPods().get("1_1");
 
-        Pod pod3_1 = node1.getPods().get(0);
-        Pod pod3_2 = node1.getPods().get(1);
+        Pod pod3_1 = node3.getPods().get("2_0");
+        Pod pod3_2 = node3.getPods().get("2_1");
 
-        Pod pod4_1 = node1.getPods().get(0);
-        Pod pod4_2 = node1.getPods().get(1);
+        Pod pod4_1 = node4.getPods().get("3_0");
+        Pod pod4_2 = node4.getPods().get("3_1");
 
-        Pod pod5_1 = node1.getPods().get(0);
-        Pod pod5_2 = node1.getPods().get(1);
+        Pod pod5_1 = node5.getPods().get("4_0");
+        Pod pod5_2 = node5.getPods().get("4_1");
 
         PodInteractions podInteractions1_1_1 = new PodInteractions("", "", 0, 0);
         pod1_1.setInteractions(Arrays.asList(podInteractions1_1_1));
 
         PodInteractions podInteractions1_2_1 = new PodInteractions("", "", 0, 0);
-        pod1_1.setInteractions(Arrays.asList(podInteractions1_2_1));
+        pod1_2.setInteractions(Arrays.asList(podInteractions1_2_1));
 
         PodInteractions podInteractions2_1_1 = new PodInteractions("", "", 0, 0);
-        pod1_1.setInteractions(Arrays.asList(podInteractions2_1_1));
+        pod2_1.setInteractions(Arrays.asList(podInteractions2_1_1));
 
         PodInteractions podInteractions2_2_1 = new PodInteractions("", "", 0, 0);
-        pod1_1.setInteractions(Arrays.asList(podInteractions2_2_1));
+        pod2_2.setInteractions(Arrays.asList(podInteractions2_2_1));
 
         PodInteractions podInteractions3_1_1 = new PodInteractions("", "", 0, 0);
-        pod1_1.setInteractions(Arrays.asList(podInteractions3_1_1));
+        pod3_1.setInteractions(Arrays.asList(podInteractions3_1_1));
 
         PodInteractions podInteractions3_2_1 = new PodInteractions("", "", 0, 0);
-        pod1_1.setInteractions(Arrays.asList(podInteractions3_2_1));
+        pod3_2.setInteractions(Arrays.asList(podInteractions3_2_1));
 
         PodInteractions podInteractions4_1_1 = new PodInteractions("", "", 0, 0);
-        pod1_1.setInteractions(Arrays.asList(podInteractions4_1_1));
+        pod4_1.setInteractions(Arrays.asList(podInteractions4_1_1));
 
         PodInteractions podInteractions4_2_1 = new PodInteractions("", "", 0, 0);
-        pod1_1.setInteractions(Arrays.asList(podInteractions4_2_1));
+        pod4_2.setInteractions(Arrays.asList(podInteractions4_2_1));
 
         PodInteractions podInteractions5_1_1 = new PodInteractions("", "", 0, 0);
-        pod1_1.setInteractions(Arrays.asList(podInteractions5_1_1));
+        pod5_1.setInteractions(Arrays.asList(podInteractions5_1_1));
 
         PodInteractions podInteractions5_2_1 = new PodInteractions("", "", 0, 0);
-        pod1_1.setInteractions(Arrays.asList(podInteractions5_2_1));
+        pod5_2.setInteractions(Arrays.asList(podInteractions5_2_1));
     }
 
     private static Pod generatePod(String podId, String name) {
