@@ -3,11 +3,24 @@
 
   .before-chart,
   .after-chart {
-    flex: 2;
+    flex: 1;
   }
 
   .recommendation-list {
     flex: 1;
-    text-align: center;
+
+    h4 {
+      text-align: center;
+    }
   }
+
+  .recom-class {
+    border: 1px solid grey;
+    padding: 15px;
+    margin: 0 15px 15px;
+  }
+}
+
+.latency-chart {
+  min-height: 300px;
 }

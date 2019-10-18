@@ -9,9 +9,12 @@ import { ClusterListService } from '../cluster-list.service';
 })
 export class RecommendationsComponent {
   public selections = [];
-  public recommendations = {};
+  public recommendations = [{ name: 'DUMMY' }];
   public chartBefore = {};
   public chartAfter = {};
+  public openRec = false;
+  public recClicked: any;
+
   constructor(private readonly _service: ClusterListService,
     private readonly router: Router) { };
 
@@ -29,6 +32,11 @@ export class RecommendationsComponent {
     }, (err) => {
       this.router.navigate(['clusters']);
     })
+  }
+
+  onRecClick(rec) {
+    this.openRec = true;
+    this.recClicked = rec;
   }
 
 

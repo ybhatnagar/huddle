@@ -6,8 +6,18 @@
   <div class="divider"></div>
   <div class="recommendation-list">
     <h4>Recommendations</h4>
-    <div style="margin: 100px 0;">
-      COMMING SOON
+    <div>
+      <div *ngFor="let rec of recommendations">
+        <div class="recom-class">
+          <h5>{{rec.name}}</h5>
+          <div>
+            DETAILS UNKNOWN
+          </div>
+          <div>
+            <button class="btn btn-link" (click)="onRecClick(rec)">Show More Details</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="divider"></div>
@@ -16,3 +26,16 @@
     <connection-chart [chartData]="chartAfter" [allowDrag]="true"></connection-chart>
   </div>
 </div>
+
+<clr-modal [(clrModalOpen)]="openRec" [clrModalSize]="'lg'">
+  <h3 class="modal-title">Why this recommendation</h3>
+  <div class="modal-body">
+    <div class="latency-chart">
+      <latency-chart></latency-chart>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="basic = false">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="basic = false">Ok</button>
+  </div>
+</clr-modal>
