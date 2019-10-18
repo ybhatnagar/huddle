@@ -1,13 +1,18 @@
 <div class="recommendations">
   <div class="before-chart">
+    <h4>Clusters Before</h4>
     <connection-chart [chartData]="chartBefore"></connection-chart>
   </div>
   <div class="divider"></div>
   <div class="recommendation-list">
-    Recommendation List
+    <h4>Recommendations</h4>
+    <div style="margin: 100px 0;">
+      COMMING SOON
+    </div>
   </div>
   <div class="divider"></div>
   <div class="after-chart">
-    <connection-chart [chartData]="chartAfter"></connection-chart>
+    <h4>Clusters After</h4>
+    <connection-chart [chartData]="chartAfter" [allowDrag]="true"></connection-chart>
   </div>
 </div>
