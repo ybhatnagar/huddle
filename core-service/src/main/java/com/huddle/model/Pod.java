@@ -15,7 +15,7 @@ public class Pod extends Resource {
     private static final Logger log = LoggerFactory.getLogger(Pod.class);
 
     private String ip;
-    private Node parentNode;
+    private String parentNodeId;
     private boolean systemPod;
     private String namespace;
     private Capacity limitCapacity;
@@ -37,14 +37,9 @@ public class Pod extends Resource {
         return l1/l2;
     }
 
-    public void assignParent(Node parentNode){
-        this.parentNode = parentNode;
-        log.debug("Pod {} joins the Node {}", this, parentNode);
-    }
-
-    public void leftNode(){
-        this.parentNode = null;
-        log.debug("Pod {} left the Node {}", this, parentNode);
+    public void assignParent(String parentId){
+        this.parentNodeId = parentId;
+        log.debug("Pod {} joins the Node {}", this, parentNodeId);
     }
 
     @Override
@@ -54,7 +49,7 @@ public class Pod extends Resource {
                 "ip=" + getIp() +
                 ", limitCapacity=" + limitCapacity +
                 ", requestCapacity=" + requestCapacity +
-                ", parentNode=" + (parentNode == null ? null:parentNode.getName()) +
+                ", parentNodeId=" + parentNodeId +
                 ", name='" + this.getName() + '\'' +
                 ", interactions=" + interactions +
                 '}';
