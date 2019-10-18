@@ -11,6 +11,9 @@ export class ClusterListService {
   public getClusters(): Observable<any> {
     return this.http.get(`${this.baseUrl}/cluster-list.json`);
   }
+  public getChartData(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/series-data.json`);
+  }
   public getRecommendations(selections): Observable<any> {
     return this.http.get(`${this.baseUrl}/cluster-recommendations.json`, selections);
     // return this.http.post(`${this.baseUrl}/cluster-recommendations.json`, selections);

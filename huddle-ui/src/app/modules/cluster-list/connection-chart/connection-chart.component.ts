@@ -1,5 +1,6 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import * as Highcharts from 'highcharts';
+import { ClusterListService } from '../cluster-list.service';
 
 
 declare var require: any;
@@ -22,14 +23,28 @@ export class ConnectionChartComponent {
   @Input() allowDrag = false;
   @ViewChild('chartEl', { static: false }) chartElement: ElementRef;
   private options;
+  private seriesData;
+
+  public loadingGraph = false;
+
+  constructor(private readonly _service: ClusterListService) { };
 
   ngOnInit() {
-    setTimeout(() => {
-      this.loadGraph();
-    }, 1000)
+    this.loadingGraph = true;
+    this._service.getChartData().subscribe((data) => {
+      this.seriesData = data;
+      setTimeout(() => {
+        this.loadGraph();
+        this.loadingGraph = false;
+      }, 1000)
+    })
+
   }
 
   loadGraph() {
+    if (!this.chartElement) {
+      return;
+    }
     this.options = {
       chart: {
         renderTo: this.chartElement.nativeElement,
@@ -78,63 +93,14 @@ export class ConnectionChartComponent {
             //   value: 250
             // },
             style: {
-              color: 'black',
+              color: '#333',
               textOutline: 'none',
               fontWeight: 'normal'
             }
           }
         }
       },
-      series: [{
-        name: 'Cluster 1',
-        data: []
-      }, {
-        name: 'Cluster 2',
-        data: [{
-          name: 'pod 21',
-          value: 100
-        },
-        {
-          name: 'pod 22',
-          value: 60
-        },
-        {
-          name: 'pod 23',
-          value: 90
-        },
-        {
-          name: 'pod 24',
-          value: 10
-        }]
-      }, {
-        name: 'Cluster 3',
-        data: [{
-          name: 'pod 31',
-          value: 30
-        },
-        {
-          name: 'pod 32',
-          value: 100
-        }]
-      }, {
-        name: 'Cluster 4',
-        data: [{
-          name: 'pod 41',
-          value: 120
-        },
-        {
-          name: 'pod 42',
-          value: 10
-        },
-        {
-          name: 'pod 43',
-          value: 10
-        },
-        {
-          name: 'pod 44',
-          value: 10
-        }]
-      }]
+      series: this.seriesData
     };
     new Highcharts.Chart(this.options);
   }
