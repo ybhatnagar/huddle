@@ -1,13 +1,21 @@
 package com.huddle;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import java.util.List;
 
-@SpringBootTest
-class ApplicationTests {
+import com.huddle.model.Node;
+import com.huddle.simulator.DataGenerator;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = TestConfig.class)
+public class ApplicationTests {
 
 	@Test
-	void contextLoads() {
+	public void dummyTest() {
+		List<Node> nodes = DataGenerator.generate(5, 2);
+		System.out.println(nodes);
 	}
-
 }
