@@ -48,34 +48,34 @@ public class DataGenerator {
         Pod pod5_1 = node5.getPods().get("4_0");
         Pod pod5_2 = node5.getPods().get("4_1");
 
-        PodInteractions podInteractions1_1_1 = new PodInteractions("", "", 0, 0);
+        PodInteractions podInteractions1_1_1 = new PodInteractions(pod2_1.getName(), pod2_1.getIp(), 10, 2);
         pod1_1.setInteractions(Arrays.asList(podInteractions1_1_1));
 
-        PodInteractions podInteractions1_2_1 = new PodInteractions("", "", 0, 0);
+        PodInteractions podInteractions1_2_1 = new PodInteractions(pod3_1.getName(), pod3_1.getIp(), 15, 3);
         pod1_2.setInteractions(Arrays.asList(podInteractions1_2_1));
 
-        PodInteractions podInteractions2_1_1 = new PodInteractions("", "", 0, 0);
+        PodInteractions podInteractions2_1_1 = new PodInteractions(pod4_1.getName(), pod4_1.getIp(), 20, 5);
         pod2_1.setInteractions(Arrays.asList(podInteractions2_1_1));
 
-        PodInteractions podInteractions2_2_1 = new PodInteractions("", "", 0, 0);
+        PodInteractions podInteractions2_2_1 = new PodInteractions(pod3_1.getName(), pod3_1.getIp(), 25, 8);
         pod2_2.setInteractions(Arrays.asList(podInteractions2_2_1));
 
-        PodInteractions podInteractions3_1_1 = new PodInteractions("", "", 0, 0);
+        PodInteractions podInteractions3_1_1 = new PodInteractions(pod1_1.getName(), pod1_1.getIp(), 5, 2);
         pod3_1.setInteractions(Arrays.asList(podInteractions3_1_1));
 
-        PodInteractions podInteractions3_2_1 = new PodInteractions("", "", 0, 0);
+        PodInteractions podInteractions3_2_1 = new PodInteractions(pod5_1.getName(), pod5_1.getIp(), 2, 10);
         pod3_2.setInteractions(Arrays.asList(podInteractions3_2_1));
 
-        PodInteractions podInteractions4_1_1 = new PodInteractions("", "", 0, 0);
+        PodInteractions podInteractions4_1_1 = new PodInteractions(pod2_1.getName(), pod2_1.getIp(), 25, 3);
         pod4_1.setInteractions(Arrays.asList(podInteractions4_1_1));
 
-        PodInteractions podInteractions4_2_1 = new PodInteractions("", "", 0, 0);
+        PodInteractions podInteractions4_2_1 = new PodInteractions(pod1_1.getName(), pod3_1.getIp(), 40, 20);
         pod4_2.setInteractions(Arrays.asList(podInteractions4_2_1));
 
-        PodInteractions podInteractions5_1_1 = new PodInteractions("", "", 0, 0);
+        PodInteractions podInteractions5_1_1 = new PodInteractions(pod1_1.getName(), pod1_1.getIp(), 12, 25);
         pod5_1.setInteractions(Arrays.asList(podInteractions5_1_1));
 
-        PodInteractions podInteractions5_2_1 = new PodInteractions("", "", 0, 0);
+        PodInteractions podInteractions5_2_1 = new PodInteractions(pod4_1.getName(), pod4_1.getIp(), 4, 12);
         pod5_2.setInteractions(Arrays.asList(podInteractions5_2_1));
     }
 
