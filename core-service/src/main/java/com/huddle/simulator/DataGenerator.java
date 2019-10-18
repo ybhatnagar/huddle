@@ -83,7 +83,7 @@ public class DataGenerator {
         int requestMemoryMB = generateRandomIntBetween(1, 20) * 100;
         int requestCpuMillicore = generateRandomIntBetween(1, 20) * 50;
 
-        int limitMemoryMB = 1024;
+        int limitMemoryMB = 2048;
         int limitCpuMillicore = 1000;
 
         String ip = "10.112." + generateRandomIntBetween(1, 100) + "." + generateRandomIntBetween(1, 100);

@@ -1,12 +1,13 @@
 package com.huddle;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.Gson;
 import com.huddle.model.GroupResponse;
-import com.huddle.model.GroupResponse.NodeGrouping;
+import com.huddle.model.GroupResponse.NodeInternal;
 import com.huddle.model.Node;
+import com.huddle.model.Pod;
 import com.huddle.simulator.DataGenerator;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,7 +23,16 @@ public class ApplicationTests {
 		List<Node> nodes = DataGenerator.generate(5, 2);
 		GroupResponse groupResponse = new GroupResponse();
 		groupResponse.setId(1L);
-		groupResponse.setGroups(Arrays.asList(new NodeGrouping(nodes)));
+
+		List<NodeInternal> nodeInternals = new ArrayList<>();
+		nodes.forEach(node -> {
+			List<Pod> pods = new ArrayList<>(node.getPods().values());
+			pods.stream().forEach(pod -> {
+				pod.setSize(pod.calculateSize());
+			});
+			nodeInternals.add(new NodeInternal(node.getId(), node.getName(), pods));
+		});
+		groupResponse.setNodes(nodeInternals);
 		System.out.println(new Gson().toJson(groupResponse));
 	}
 }
