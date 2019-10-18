@@ -92,15 +92,15 @@ export class ConnectionChartComponent {
         name: 'Cluster 2',
         data: [{
           name: 'pod 21',
-          value: 10
+          value: 100
         },
         {
           name: 'pod 22',
-          value: 10
+          value: 60
         },
         {
           name: 'pod 23',
-          value: 10
+          value: 90
         },
         {
           name: 'pod 24',
@@ -110,17 +110,17 @@ export class ConnectionChartComponent {
         name: 'Cluster 3',
         data: [{
           name: 'pod 31',
-          value: 10
+          value: 30
         },
         {
           name: 'pod 32',
-          value: 10
+          value: 100
         }]
       }, {
         name: 'Cluster 4',
         data: [{
           name: 'pod 41',
-          value: 10
+          value: 120
         },
         {
           name: 'pod 42',
