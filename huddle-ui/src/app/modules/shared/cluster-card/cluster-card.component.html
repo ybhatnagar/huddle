@@ -19,7 +19,7 @@
       </div>
     </div>
   </div>
-  <clr-signpost-content *clrIfOpen class="signpost-content" [clrPosition]="'right-middle'">
+  <clr-signpost-content *clrIfOpen class="signpost-content" [clrPosition]="signpostPosition">
     <!-- <div *ngFor="let pod of cluster.pods">
       <clr-toggle-wrapper>
         <input type="checkbox" clrToggle [(ngModel)]="pod.isSelected" (change)="updateSelectList(pod)" />

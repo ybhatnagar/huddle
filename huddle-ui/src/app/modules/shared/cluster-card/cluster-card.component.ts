@@ -7,9 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class ClusterCardComponent {
     @Input() cluster: any = {};
+    @Input() signpostPosition: string = 'right-bottom';
     ngOnInit(): void {
-        //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-        //Add 'implements OnInit' to the class.
         this.cluster.podsSelected = this.cluster.podsSelected || [];
     }
 
