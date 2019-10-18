@@ -29,7 +29,7 @@ public class DataGenerator {
         int limitMemoryMB = 1024;
         int limitCpuMillicore = 1000;
 
-        String ip = "10.112.";
+        String ip = "10.112." + generateRandomIntBetween(1, 100) + "." + generateRandomIntBetween(1, 100);
         return new Pod(podId,name, ip, limitMemoryMB, limitCpuMillicore,requestMemoryMB, requestCpuMillicore);
     }
 

@@ -44,4 +44,16 @@ public class Pod extends Resource {
         this.parentNode = null;
         log.debug("Pod {} left the Node {}", this, parentNode);
     }
+
+    @Override
+    public String toString() {
+        return "Pod{" +
+                "id=" + getId() +
+                "ip=" + getIp() +
+                ", limitCapacity=" + limitCapacity +
+                ", requestCapacity=" + requestCapacity +
+                ", parentNode=" + (parentNode == null ? null:parentNode.getName()) +
+                ", name='" + this.getName() + '\'' +
+                '}';
+    }
 }

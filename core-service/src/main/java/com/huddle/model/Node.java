@@ -27,4 +27,11 @@ public class Node extends Resource{
         pod.joinedNode(this);
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                "pods=" + pods +
+                '}';
+    }
 }
