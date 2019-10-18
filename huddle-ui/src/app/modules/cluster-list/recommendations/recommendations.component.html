@@ -1,20 +1,41 @@
 <div class="recommendations">
   <div class="before-chart">
-    <h4>Clusters Before</h4>
+    <h4>Current Clusters</h4>
     <connection-chart [chartData]="chartBefore"></connection-chart>
   </div>
   <div class="divider"></div>
   <div class="recommendation-list">
     <h4>Recommendations</h4>
     <div>
-      <div *ngFor="let rec of recommendations">
+      <div *ngFor="let rec of recommendations;let index = index;">
         <div class="recom-class">
-          <h5>{{rec.name}}</h5>
-          <div>
-            DETAILS UNKNOWN
+          <div style="display: flex;justify-content: space-between; border-bottom: 1px solid grey;">
+            <h5 style="margin-top:0">{{rec.pod}}</h5>
+            <clr-icon shape="times" class="clickable" (click)="recommendations.splice(index,1)"></clr-icon>
           </div>
-          <div>
-            <button class="btn btn-link" (click)="onRecClick(rec)">Show More Details</button>
+          <div style="margin: 15px 0; ">
+            <div style="display: flex; justify-content: space-between; font-size: 18px">
+              <span>{{rec.currentNode}}</span>
+              <span>
+                <clr-icon shape="arrow" dir="right" size="32"></clr-icon>
+              </span>
+              <span>{{rec.recommendedNode}}</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-top: 15px;">
+              <span>Cost Saving: <b>${{rec.costSavings}}</b>
+                <clr-icon shape="arrow" dir="down" class="is-success"></clr-icon>
+              </span>
+              <span>Latency: <b>{{rec.latencyImprovement}}ms</b>
+                <clr-icon shape="arrow" dir="down" class="is-success"></clr-icon>
+              </span>
+            </div>
+          </div>
+          <div style="display: flex;justify-content: space-between; border-top: 1px solid grey;">
+            <button class="btn btn-link btn-sm" (click)="onRecClick(rec)">why?</button>
+            <div>
+              <button class="btn btn-sm btn-danger" (click)="recommendations.splice(index,1)">Drop</button>
+              <button class="btn btn-primary btn-sm" (click)="onApply(rec)">Apply</button>
+            </div>
           </div>
         </div>
       </div>
