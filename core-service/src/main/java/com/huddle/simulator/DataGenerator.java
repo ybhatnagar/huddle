@@ -1,7 +1,7 @@
 package com.huddle.simulator;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -27,8 +27,56 @@ public class DataGenerator {
     }
 
     private static void generatePodInteractions(List<Node> nodes) {
-        //Pick one pod and set random interactions with other pod
-        
+        Node node1 = nodes.get(0);
+        Node node2 = nodes.get(0);
+        Node node3 = nodes.get(0);
+        Node node4 = nodes.get(0);
+        Node node5 = nodes.get(0);
+
+        Pod pod1_1 = node1.getPods().get(0);
+        Pod pod1_2 = node1.getPods().get(1);
+
+        Pod pod2_1 = node1.getPods().get(0);
+        Pod pod2_2 = node1.getPods().get(1);
+
+        Pod pod3_1 = node1.getPods().get(0);
+        Pod pod3_2 = node1.getPods().get(1);
+
+        Pod pod4_1 = node1.getPods().get(0);
+        Pod pod4_2 = node1.getPods().get(1);
+
+        Pod pod5_1 = node1.getPods().get(0);
+        Pod pod5_2 = node1.getPods().get(1);
+
+        PodInteractions podInteractions1_1_1 = new PodInteractions("", "", 0, 0);
+        pod1_1.setInteractions(Arrays.asList(podInteractions1_1_1));
+
+        PodInteractions podInteractions1_2_1 = new PodInteractions("", "", 0, 0);
+        pod1_1.setInteractions(Arrays.asList(podInteractions1_2_1));
+
+        PodInteractions podInteractions2_1_1 = new PodInteractions("", "", 0, 0);
+        pod1_1.setInteractions(Arrays.asList(podInteractions2_1_1));
+
+        PodInteractions podInteractions2_2_1 = new PodInteractions("", "", 0, 0);
+        pod1_1.setInteractions(Arrays.asList(podInteractions2_2_1));
+
+        PodInteractions podInteractions3_1_1 = new PodInteractions("", "", 0, 0);
+        pod1_1.setInteractions(Arrays.asList(podInteractions3_1_1));
+
+        PodInteractions podInteractions3_2_1 = new PodInteractions("", "", 0, 0);
+        pod1_1.setInteractions(Arrays.asList(podInteractions3_2_1));
+
+        PodInteractions podInteractions4_1_1 = new PodInteractions("", "", 0, 0);
+        pod1_1.setInteractions(Arrays.asList(podInteractions4_1_1));
+
+        PodInteractions podInteractions4_2_1 = new PodInteractions("", "", 0, 0);
+        pod1_1.setInteractions(Arrays.asList(podInteractions4_2_1));
+
+        PodInteractions podInteractions5_1_1 = new PodInteractions("", "", 0, 0);
+        pod1_1.setInteractions(Arrays.asList(podInteractions5_1_1));
+
+        PodInteractions podInteractions5_2_1 = new PodInteractions("", "", 0, 0);
+        pod1_1.setInteractions(Arrays.asList(podInteractions5_2_1));
     }
 
     private static Pod generatePod(String podId, String name) {
