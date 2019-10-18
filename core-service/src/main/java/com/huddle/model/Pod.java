@@ -17,6 +17,7 @@ public class Pod extends Resource {
     private String ip;
     private Node parentNode;
     private boolean systemPod;
+    private String namespace;
     private Capacity limitCapacity;
     private Capacity requestCapacity;
     private List<PodInteraction> interactions;

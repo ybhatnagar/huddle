@@ -22,7 +22,6 @@ public class HuddleService {
     }
 
     public GroupResponse getGroups(K8SClusterResponse response){
-
         //TODO: do it.
         return null;
     }
