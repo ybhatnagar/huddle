@@ -2,7 +2,6 @@ package com.huddle.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,7 +19,7 @@ public class Pod extends Resource {
     private boolean systemPod;
     private Capacity limitCapacity;
     private Capacity requestCapacity;
-    private List<PodInteractions> interactions;
+    private List<PodInteraction> interactions;
 
     public Pod(String id, String name, String ip, long limitMemoryMB, long limitCpuMillicore, long requestMemoryMB, long requestCpuMillicore) {
         super(id, name);

@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PodInteractions {
+public class PodInteraction {
     String destinationName;
     String destinationIp;
     long interactionCount;
