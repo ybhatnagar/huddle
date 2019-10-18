@@ -1,11 +1,13 @@
 package com.huddle.controller;
 
 import com.huddle.model.ClusterResponse;
+import com.huddle.model.GroupResponse;
 import com.huddle.model.dto.PodResponse;
 import com.huddle.services.HuddleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,6 +23,12 @@ public class HuddleController {
     public ClusterResponse getClustersInfo() {
         return huddleService.getClusterInfo();
     }
+
+    @PostMapping("/clusters")
+    GroupResponse getNodeGroupping(ClusterResponse response){
+        return huddleService.getGroups(response);
+    }
+
 
     @GetMapping("/pods")
     public PodResponse[] getPodsInfo() {

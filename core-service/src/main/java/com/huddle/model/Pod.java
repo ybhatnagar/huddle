@@ -37,7 +37,7 @@ public class Pod extends Resource {
         return l1/l2;
     }
 
-    public void joinedNode(Node parentNode){
+    public void assignParent(Node parentNode){
         this.parentNode = parentNode;
         log.debug("Pod {} joins the Node {}", this, parentNode);
     }

@@ -21,7 +21,8 @@ public class HuddleService {
         return purserService.getClusterInfo();
     }
 
-    public GroupResponse getGroups() {
+    public GroupResponse getGroups(ClusterResponse response){
+
         //TODO: do it.
         return null;
     }

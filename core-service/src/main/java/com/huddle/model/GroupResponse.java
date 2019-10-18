@@ -3,7 +3,6 @@ package com.huddle.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import net.bytebuddy.asm.Advice;
 
 import java.util.List;
 
@@ -12,6 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 public class GroupResponse {
 
+    Long id;
     List<NodeGrouping> groups;
 
 
