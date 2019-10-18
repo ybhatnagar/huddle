@@ -2,7 +2,6 @@ package com.huddle.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,7 +23,7 @@ public class Node extends Resource{
 
     public boolean addPod(Pod pod) {
         pods.put(pod.getId(),pod);
-        pod.joinedNode(this);
+        pod.assignParent(this);
         return true;
     }
 
