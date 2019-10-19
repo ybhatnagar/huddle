@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   labels:
-    app: borathon-app
+    app: bifrost
     component: {{ .Release.Name }}
   name: {{ .Release.Name }}
 spec:
@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-        app: borathon-app
+        app: bifrost
         component: {{ .Release.Name }}
     spec:
       containers:
@@ -18,8 +18,3 @@ spec:
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         ports:
         - containerPort: 8080
-        env:
-            - name: Token
-              value: "{{ .Values.token }}"
-      imagePullSecrets:
-      - name: build-artifactory-creds

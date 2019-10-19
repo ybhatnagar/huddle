@@ -1,10 +1,9 @@
-# Default values for borathon-app.
+# Default values for heimdall.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-
-replicaCount: 1
-name: borathon-app
+replicaCount: 2
+name: heimdall
 image:
   repository: jpalash/borathon-app
   tag: latest
@@ -12,7 +11,7 @@ image:
 
 service:
   port: 8080
-  name: borathon-app
+  name: heimdall
 
 resources:
  limits:
