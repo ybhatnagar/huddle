@@ -12,6 +12,7 @@ export class RecommendationsComponent {
   public recommendations = [{ name: 'DUMMY' }];
   public chartBefore = [];
   public chartAfter = [];
+  public latencySeries = [];
   public openRec = false;
   public recClicked: any;
 
@@ -41,6 +42,9 @@ export class RecommendationsComponent {
     })
     this._service.getChartData().subscribe((data) => {
       this.chartAfter = data;
+    })
+    this._service.getLatencyChartData().subscribe((data) => {
+      this.latencySeries = data;
     })
   }
 
