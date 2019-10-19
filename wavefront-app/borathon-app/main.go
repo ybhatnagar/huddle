@@ -12,7 +12,7 @@ func main() {
 	tracerConfig := &utils.TracerConfig{
 		Cluster: "Local Cluster",
 		CustomTags: map[string]string{
-			"abc": "xyz",
+			"app": "borathon-app",
 		},
 	}
 	err := utils.InitTracer("borathon-app", "borathon-app-api", "local", tracerConfig)
