@@ -18,7 +18,6 @@ import (
 func RegisterBorathonApi() {
 	inits.EchoWeb.GET("/borathonapi/test", handle)
 	inits.EchoWeb.GET("/borathonapi/testcrossgeo", handleCrossGeo)
-
 }
 
 func handle(c echo.Context) (err error) {
@@ -43,9 +42,22 @@ func handle(c echo.Context) (err error) {
 
 func handleCrossGeo(c echo.Context) (err error) {
 	tracer := utils.Tracer
-	span := tracer.StartSpan("trace-crossgeo")
-	defer span.Finish()
-	span.SetTag("service", os.Getenv("app"))
+	var serverSpan opentracing.Span
+	appSpecificOperationName := "trace-crossgeo"
+	wireContext, err := tracer.Extract(
+		opentracing.HTTPHeaders,
+		opentracing.HTTPHeadersCarrier(c.Request().Header))
+	if err != nil {
+		log.Println(err)
+	}
+	// Create the span referring to the RPC client if available.
+	// If wireContdockeext == nil, a root span will be created.
+	serverSpan = opentracing.StartSpan(
+		appSpecificOperationName,
+		ext.RPCServerOption(wireContext))
+
+	defer serverSpan.Finish()
+	serverSpan.SetTag("service", os.Getenv("app"))
 
 	//Reading query parameters
 	serviceUrl := c.QueryParam("serviceUrl")
@@ -66,8 +78,9 @@ func handleCrossGeo(c echo.Context) (err error) {
 		q.Add("sourceDelay", destinationDelay)
 		q.Add("serviceUrl", destinationUrl)
 	}
+	httpReq.URL.RawQuery = q.Encode()
 	tracer.Inject(
-		span.Context(),
+		serverSpan.Context(),
 		opentracing.HTTPHeaders,
 		opentracing.HTTPHeadersCarrier(httpReq.Header))
 
@@ -76,4 +89,5 @@ func handleCrossGeo(c echo.Context) (err error) {
 		return c.String(http.StatusBadRequest, err.Error())
 	}
 	return c.JSON(http.StatusOK, resp)
+
 }
