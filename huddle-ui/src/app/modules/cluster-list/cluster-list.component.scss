@@ -7,3 +7,9 @@
   position: relative;
   margin-right: 20px;
 }
+
+::ng-deep {
+  .clr-control-container {
+    max-width: 50%
+  }
+}
