@@ -1,0 +1,79 @@
+[
+  {
+    "name": "palash-node-1, palash-node-3",
+    "id": "node-1",
+    "color": "rgb(171, 216, 255)",
+    "children": [
+      {
+        "name": "lemans-gateway",
+        "id": "lemans-gateway",
+        "value": 120.00,
+        "link": [
+          "Lemans-resources"
+        ]
+      },
+      {
+        "name": "lint-app",
+        "id": "lint-app",
+        "value": 86.123,
+        "link": [
+          "lemans-gateway",
+          "lint-ui",
+          "heimdall"
+        ]
+      },
+      {
+        "name": "lint-ui",
+        "id": "lint-ui",
+        "value": 13
+      }
+    ]
+  },
+  {
+    "name": "palash-node-4,palash-node-2",
+    "id": "node-2",
+    "color": "rgb(255, 172, 169)",
+    "children": [
+      {
+        "name": "stargate-deployment",
+        "id": "stargate-deployment",
+        "value": 145.545,
+        "link": [
+          "heimdall",
+          "cortex",
+          "lemans-gateway"
+        ]
+      },
+      {
+        "name": "heimdall",
+        "id": "heimdall",
+        "value": 234.034
+      },
+      {
+        "name": "cost-analysis",
+        "id": "cost-analysis",
+        "value": 34.234,
+        "link": [
+          "heimdall"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "palash-node-5",
+    "id": "node-5",
+    "color": "rgb(137, 165, 78)",
+    "children": [
+      {
+        "name": "cortex",
+        "id": "cortex",
+        "value": 30.234
+      },
+      {
+        "name": "Lemans-resources",
+        "id": "Lemans-resources",
+        "value": 345.33
+      }
+    ]
+  }
+]
