@@ -10,8 +10,8 @@ import { ClusterListService } from '../cluster-list.service';
 export class RecommendationsComponent {
   public selections = [];
   public recommendations = [{ name: 'DUMMY' }];
-  public chartBefore = {};
-  public chartAfter = {};
+  public chartBefore = [];
+  public chartAfter = [];
   public openRec = false;
   public recClicked: any;
 
@@ -24,6 +24,7 @@ export class RecommendationsComponent {
     this.selections = this._service.getSelections();
     console.log(this.selections);
     this.loadRecommendations();
+    this.loadChartData();
   }
 
   loadRecommendations() {
@@ -34,10 +35,37 @@ export class RecommendationsComponent {
     })
   }
 
+  loadChartData() {
+    this._service.getChartData().subscribe((data) => {
+      this.chartBefore = data;
+    })
+    this._service.getChartData().subscribe((data) => {
+      this.chartAfter = data;
+    })
+  }
+
   onRecClick(rec) {
     this.openRec = true;
     this.recClicked = rec;
   }
 
-
+  onApply(rec) {
+    let chart = this.chartAfter;
+    this.chartAfter = null;
+    let currentNode = chart.find((cluster) => {
+      return cluster.name.indexOf(rec.currentNode) > -1;
+    })
+    let recommendedNode = chart.find((cluster) => {
+      return cluster.name.indexOf(rec.recommendedNode) > -1;
+    })
+    let podIndex = currentNode.data.findIndex(pod => {
+      return pod.name === rec.pod;
+    });
+    let movingPods = currentNode.data.splice(podIndex, 1);
+    recommendedNode.data = recommendedNode.data.concat(movingPods);
+    setTimeout(() => {
+      this.chartAfter = chart;
+      rec.applied = true;
+    }, 100)
+  }
 }
