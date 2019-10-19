@@ -1,10 +1,10 @@
 package api
 
 import (
-	"errors"
-	"fmt"
 	"log"
 	"net/http"
+	"os"
+	"strconv"
 	"time"
 
 	"github.com/labstack/echo"
@@ -18,14 +18,13 @@ import (
 func RegisterBorathonApi() {
 	inits.EchoWeb.GET("/borathonapi/test", handle)
 	inits.EchoWeb.GET("/borathonapi/testcrossgeo", handleCrossGeo)
-	inits.EchoWeb.GET("/borathonapi/testintrageo", handleIntraGeo)
 
 }
 
 func handle(c echo.Context) (err error) {
 	tracer := utils.Tracer
 	var serverSpan opentracing.Span
-	appSpecificOperationName := "borathon-app-get"
+	appSpecificOperationName := os.Getenv("app") + "-get"
 	wireContext, err := tracer.Extract(
 		opentracing.HTTPHeaders,
 		opentracing.HTTPHeadersCarrier(c.Request().Header))
@@ -39,23 +38,34 @@ func handle(c echo.Context) (err error) {
 		ext.RPCServerOption(wireContext))
 
 	defer serverSpan.Finish()
-	time.Sleep(1 * time.Second)
-	return c.JSON(http.StatusOK, "Test")
+	return c.JSON(http.StatusOK, os.Getenv("app"))
 }
 
 func handleCrossGeo(c echo.Context) (err error) {
 	tracer := utils.Tracer
-	span := tracer.StartSpan("test-trace-crossgeo")
+	span := tracer.StartSpan("trace-crossgeo")
 	defer span.Finish()
-	span.SetTag("service-1", "heimdall")
+	span.SetTag("service", os.Getenv("app"))
 
 	//Reading query parameters
 	serviceUrl := c.QueryParam("serviceUrl")
-	time.Sleep(2 * time.Second)
+	sourceDelay := c.QueryParam("sourceDelay")
+	destinationDelay := c.QueryParam("destinationDelay")
+	destinationUrl := c.QueryParam("destinationUrl")
+	sourceDelayInt, err := strconv.Atoi(sourceDelay)
+
+	if err != nil {
+		log.Println(err)
+	}
+	time.Sleep(time.Duration(sourceDelayInt) * time.Millisecond)
 
 	httpClient := &http.Client{}
 	httpReq, _ := http.NewRequest("GET", serviceUrl, nil)
-
+	q := httpReq.URL.Query()
+	if destinationDelay != "" && destinationUrl != "" {
+		q.Add("sourceDelay", destinationDelay)
+		q.Add("serviceUrl", destinationUrl)
+	}
 	tracer.Inject(
 		span.Context(),
 		opentracing.HTTPHeaders,
@@ -66,22 +76,4 @@ func handleCrossGeo(c echo.Context) (err error) {
 		return c.String(http.StatusBadRequest, err.Error())
 	}
 	return c.JSON(http.StatusOK, resp)
-}
-
-func handleIntraGeo(c echo.Context) (err error) {
-	tracer := utils.Tracer
-	span := tracer.StartSpan("test-trace-intrageo")
-	defer span.Finish()
-	span.SetTag("hello-to", "palash")
-	//Reading query parameters
-	serviceUrl := c.QueryParam("serviceUrl")
-	if len(serviceUrl) == 0 {
-		err := errors.New(fmt.Sprintf("%s query param is not passed or value is empty", serviceUrl))
-		return c.String(http.StatusBadRequest, err.Error())
-	}
-	_, err = http.Get(serviceUrl)
-	if err != nil {
-		log.Println(err)
-	}
-	return c.JSON(http.StatusOK, "test")
 }

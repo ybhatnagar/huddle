@@ -12,7 +12,7 @@ image:
 service:
   port: 8080
   name: stargate-deployment
-
+app: stargate-deployment-service
 resources:
  limits:
    cpu: 800m

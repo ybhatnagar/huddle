@@ -1,31 +1,12 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
-	"time"
-
-	"github.com/opentracing/opentracing-go"
-	"gitlab.eng.vmware.com/bifrost/utils"
 )
 
 func main() {
-	// api.RegisterBorathonApi()
-
-	tracerConfig := &utils.TracerConfig{
-		Cluster: "Local Cluster",
-		CustomTags: map[string]string{
-			"source.service":      "bifrost",
-			"destination.service": "borathon-app",
-		},
-	}
-	err := utils.InitTracer("bifrost", "bifrost-api", "local", tracerConfig)
-	if err != nil {
-		panic("Tracing Initialization failed...")
-	}
-
-	// //Initialising server
-	// inits.EchoWeb.Logger.Fatal(inits.EchoWeb.Start(":" + "1323"))
 
 	pingApp()
 
@@ -36,20 +17,18 @@ func main() {
 }
 
 func pingApp() {
-	for i := 0; i < 200; i++ {
-		tracer := utils.Tracer
-		span := tracer.StartSpan("test-trace-cross-service")
-		defer span.Finish()
-		span.SetTag("service-1", "bifrost-get")
-		time.Sleep(1 * time.Second)
-
+	for i := 0; i < 1; i++ {
 		httpClient := &http.Client{}
-		httpReq, _ := http.NewRequest("GET", "http://borathon-app-0.borathon-app.default.svc.cluster.local:8080/borathonapi/test", nil)
+		httpReq, _ := http.NewRequest("GET", "http://google.com", nil)
+		q := httpReq.URL.Query()
+		q.Add("sourceDelay", "42")
+		q.Add("destinationDelay", "22")
+		q.Add("serviceUrl","")
+		q.Add("destinationUrl","")
+		httpReq.URL.RawQuery = q.Encode()
 
-		tracer.Inject(
-			span.Context(),
-			opentracing.HTTPHeaders,
-			opentracing.HTTPHeadersCarrier(httpReq.Header))
+		fmt.Println(httpReq.URL.String())
+
 		resp, err := httpClient.Do(httpReq)
 		if err != nil {
 			log.Println(err)

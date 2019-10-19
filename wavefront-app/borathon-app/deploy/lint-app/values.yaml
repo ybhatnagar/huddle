@@ -12,7 +12,7 @@ image:
 service:
   port: 8080
   name: lint-app
-
+app: lint-app-service
 resources:
  limits:
    cpu: 500m

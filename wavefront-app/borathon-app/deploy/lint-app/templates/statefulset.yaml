@@ -37,4 +37,7 @@ spec:
             memory: {{ .Values.resources.requests.memory }}
         ports:
         - containerPort: 8080
+        env:
+            - name: app
+              value: "{{ .Values.app }}"
      

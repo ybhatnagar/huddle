@@ -12,7 +12,7 @@ image:
 service:
   port: 8080
   name: cost-analysis
-
+app: cost-analysis-service
 resources:
  limits:
    cpu: 500m

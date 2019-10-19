@@ -1,6 +1,8 @@
 package main
 
 import (
+	"os"
+
 	"gitlab.eng.vmware.com/borathon-app/api"
 	"gitlab.eng.vmware.com/borathon-app/inits"
 	"gitlab.eng.vmware.com/borathon-app/utils"
@@ -12,10 +14,10 @@ func main() {
 	tracerConfig := &utils.TracerConfig{
 		Cluster: "Local Cluster",
 		CustomTags: map[string]string{
-			"app": "borathon-app",
+			"app": os.Getenv("app"),
 		},
 	}
-	err := utils.InitTracer("borathon-app", "borathon-app-api", "local", tracerConfig)
+	err := utils.InitTracer(os.Getenv("app"), os.Getenv("app"), "local", tracerConfig)
 	if err != nil {
 		panic("Tracing Initialization failed...")
 	}
