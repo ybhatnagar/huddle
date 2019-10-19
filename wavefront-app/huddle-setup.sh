@@ -12,3 +12,6 @@ helm install --namespace=default ./lint-app/ --name lint-app
 helm install --namespace=default ./lint-ui/ --name lint-ui
 helm install --namespace=default ./stargate-deployment/ --name stargate-deployment
 echo "Completed"
+echo "---------------------"
+echo " Deploy Bifrost Now"
+echo "---------------------"

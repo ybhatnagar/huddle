@@ -17,7 +17,7 @@ func main() {
 
 func pingApp() {
 	for {
-		time.Sleep(500 * time.Millisecond)
+		time.Sleep(10 * time.Second)
 		httpClient := &http.Client{}
 		httpReq, _ := http.NewRequest("GET", "http://cortex-0.cortex.default.svc.cluster.local:8080/borathonapi/testcrossgeo", nil)
 		q := httpReq.URL.Query()
