@@ -9,6 +9,10 @@
     <div>
       <div *ngFor="let rec of recommendations;let index = index;">
         <div class="recom-class">
+          <div class="overlay" *ngIf="rec.applied">
+            <div class="mask"></div>
+            <clr-icon shape="success-standard" size="100" class="is-success"></clr-icon>
+          </div>
           <div style="display: flex;justify-content: space-between; border-bottom: 1px solid grey;">
             <h5 style="margin-top:0">{{rec.pod}}</h5>
             <clr-icon shape="times" class="clickable" (click)="recommendations.splice(index,1)"></clr-icon>

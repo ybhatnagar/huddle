@@ -1,60 +1,48 @@
 [
   {
-    "name": "Cluster 1",
-    "data": []
-  },
-  {
-    "name": "Cluster 2",
+    "name": "palash-node-1, palash-node-3",
     "data": [
       {
-        "name": "pod 21",
-        "value": 100
+        "name": "lemans-gateway",
+        "value": 120.00
       },
       {
-        "name": "pod 22",
-        "value": 60
+        "name": "lint-app",
+        "value": 86.123
       },
       {
-        "name": "pod 23",
-        "value": 90
-      },
-      {
-        "name": "pod 24",
-        "value": 10
+        "name": "lint-ui",
+        "value": 13
       }
     ]
   },
   {
-    "name": "Cluster 3",
+    "name": "palash-node-4,palash-node-2",
     "data": [
       {
-        "name": "pod 31",
-        "value": 30
+        "name": "stargate-deployment",
+        "value": 145.545
       },
       {
-        "name": "pod 32",
-        "value": 100
+        "name": "heimdall",
+        "value": 234.034
+      },
+      {
+        "name": "cost-analysis",
+        "value": 34.234
       }
     ]
   },
   {
-    "name": "Cluster 4",
+    "name": "palash-node-5",
     "data": [
       {
-        "name": "pod 41",
-        "value": 120
+        "name": "cortex",
+        "value": 30.234
       },
       {
-        "name": "pod 42",
-        "value": 10
-      },
-      {
-        "name": "pod 43",
-        "value": 10
-      },
-      {
-        "name": "pod 44",
-        "value": 10
+        "name": "Lemans-resources",
+        "value": 345.33
       }
     ]
   }

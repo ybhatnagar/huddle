@@ -19,25 +19,29 @@ noData(Highcharts);
   styleUrls: ['connection-chart.component.scss']
 })
 export class ConnectionChartComponent {
-  @Input() chartData;
+  private _chartData = [];
+  @Input() set chartData(data) {
+    if (data) {
+      this._chartData = data;
+      setTimeout(() => {
+        this.loadingGraph = false;
+        this.loadGraph();
+      }, 1000);
+    } else {
+      this.loadingGraph = true;
+    }
+  };
+  get chartData() {
+    return this._chartData;
+  }
   @Input() allowDrag = false;
   @ViewChild('chartEl', { static: false }) chartElement: ElementRef;
   private options;
-  private seriesData;
-
-  public loadingGraph = false;
+  private loadingGraph = true;
 
   constructor(private readonly _service: ClusterListService) { };
 
   ngOnInit() {
-    this.loadingGraph = true;
-    this._service.getChartData().subscribe((data) => {
-      this.seriesData = data;
-      setTimeout(() => {
-        this.loadGraph();
-        this.loadingGraph = false;
-      }, 1000)
-    })
 
   }
 
@@ -50,7 +54,8 @@ export class ConnectionChartComponent {
         renderTo: this.chartElement.nativeElement,
         type: 'packedbubble',
         backgroundColor: 'transparent',
-        height: '100%'
+        height: '100%',
+        margin: [20, 0, 20, 0]
       },
       credits: {
         enabled: false
@@ -100,7 +105,7 @@ export class ConnectionChartComponent {
           }
         }
       },
-      series: this.seriesData
+      series: this.chartData
     };
     new Highcharts.Chart(this.options);
   }

@@ -1,16 +1,16 @@
 [
   {
-    "pod": "lint-app",
-    "currentNode": "palash-node-1",
-    "recommendedNode": "palash-node-2",
+    "pod": "stargate-deployment",
+    "currentNode": "palash-node-4",
+    "recommendedNode": "palash-node-1",
     "costSavings": 12,
-    "latencyImprovement": 213
+    "latencyImprovement": 350
   },
   {
-    "pod": "lint-app-2",
-    "currentNode": "palash-node-11",
-    "recommendedNode": "palash-node-21",
-    "costSavings": 120,
-    "latencyImprovement": 13
+    "pod": "lemans-gateway",
+    "currentNode": "palash-node-1",
+    "recommendedNode": "palash-node-5",
+    "costSavings": 3.141,
+    "latencyImprovement": 213
   }
 ]
