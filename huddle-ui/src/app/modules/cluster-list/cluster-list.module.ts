@@ -1,6 +1,7 @@
 // Angular Imports
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ClarityModule } from '@clr/angular';
 import { SharedModule } from '../shared/shared.modules';
 // This Module's Components
@@ -12,6 +13,7 @@ import { RecommendationsComponent } from './recommendations/recommendations.comp
 
 @NgModule({
   imports: [
+    FormsModule,
     SharedModule,
     ClarityModule,
     CommonModule
