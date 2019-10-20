@@ -50,7 +50,7 @@ export class LatencyChartComponent {
     series.linkWithStrength = 0;
     series.minRadius = 15;
     series.maxRadius = 40;
-    series.centerStrength = 0.2;
+    series.centerStrength = 0.3;
 
     // Configure circles
     // series.nodes.template.circle.fill = am4core.color("#fff");
