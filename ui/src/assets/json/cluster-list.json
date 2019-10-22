@@ -1,0 +1,163 @@
+{
+  "cluster": [
+    {
+      "clusterName": "Staging-eng-services",
+      "pods": [
+        {
+          "podName": "pod-stage1",
+          "nodeName": "node-stage1",
+          "podIp": "10.112.31.3",
+          "namespace": "borathon"
+        },
+        {
+          "podName": "pod-stage2",
+          "nodeName": "node-stage2",
+          "podIp": "10.112.31.5",
+          "namespace": "borathon"
+        },
+        {
+          "podName": "pod-stage1",
+          "nodeName": "node-stage1",
+          "podIp": "10.112.31.3",
+          "namespace": "borathon"
+        },
+        {
+          "podName": "pod-stage2",
+          "nodeName": "node-stage2",
+          "podIp": "10.112.31.5",
+          "namespace": "borathon"
+        },
+        {
+          "podName": "pod-stage1",
+          "nodeName": "node-stage1",
+          "podIp": "10.112.31.3",
+          "namespace": "borathon"
+        },
+        {
+          "podName": "pod-stage2",
+          "nodeName": "node-stage2",
+          "podIp": "10.112.31.5",
+          "namespace": "borathon"
+        },
+        {
+          "podName": "pod-stage1",
+          "nodeName": "node-stage1",
+          "podIp": "10.112.31.3",
+          "namespace": "borathon"
+        },
+        {
+          "podName": "pod-stage2",
+          "nodeName": "node-stage2",
+          "podIp": "10.112.31.5",
+          "namespace": "borathon"
+        },
+        {
+          "podName": "pod-stage1",
+          "nodeName": "node-stage1",
+          "podIp": "10.112.31.3",
+          "namespace": "borathon"
+        },
+        {
+          "podName": "pod-stage2",
+          "nodeName": "node-stage2",
+          "podIp": "10.112.31.5",
+          "namespace": "borathon"
+        },
+        {
+          "podName": "pod-stage1",
+          "nodeName": "node-stage1",
+          "podIp": "10.112.31.3",
+          "namespace": "borathon"
+        },
+        {
+          "podName": "pod-stage2",
+          "nodeName": "node-stage2",
+          "podIp": "10.112.31.5",
+          "namespace": "borathon"
+        }
+      ]
+    },
+    {
+      "clusterName": "Upgrade-eng-services",
+      "pods": [
+        {
+          "podName": "pod-upgrade",
+          "nodeName": "node-upgrade",
+          "podIp": "10.112.41.3",
+          "namespace": "borathon"
+        },
+        {
+          "podName": "pod-upgrade2",
+          "nodeName": "node-upgrade2",
+          "podIp": "10.112.41.5",
+          "namespace": "borathon"
+        }
+      ]
+    },
+    {
+      "clusterName": "Prod-eng-services",
+      "pods": [
+        {
+          "podName": "pod-prod",
+          "nodeName": "node-prod",
+          "podIp": "10.112.51.3",
+          "namespace": "borathon"
+        },
+        {
+          "podName": "pod-prod2",
+          "nodeName": "node-prod2",
+          "podIp": "10.112.51.5",
+          "namespace": "borathon"
+        },
+        {
+          "podName": "pod-stage1",
+          "nodeName": "node-stage1",
+          "podIp": "10.112.31.3",
+          "namespace": "borathon"
+        },
+        {
+          "podName": "pod-stage2",
+          "nodeName": "node-stage2",
+          "podIp": "10.112.31.5",
+          "namespace": "borathon"
+        },
+        {
+          "podName": "pod-stage1",
+          "nodeName": "node-stage1",
+          "podIp": "10.112.31.3",
+          "namespace": "borathon"
+        },
+        {
+          "podName": "pod-stage2",
+          "nodeName": "node-stage2",
+          "podIp": "10.112.31.5",
+          "namespace": "borathon"
+        },
+        {
+          "podName": "pod-stage1",
+          "nodeName": "node-stage1",
+          "podIp": "10.112.31.3",
+          "namespace": "borathon"
+        },
+        {
+          "podName": "pod-stage2",
+          "nodeName": "node-stage2",
+          "podIp": "10.112.31.5",
+          "namespace": "borathon"
+        },
+        {
+          "podName": "pod-stage1",
+          "nodeName": "node-stage1",
+          "podIp": "10.112.31.3",
+          "namespace": "borathon"
+        },
+        {
+          "podName": "pod-stage2",
+          "nodeName": "node-stage2",
+          "podIp": "10.112.31.5",
+          "namespace": "borathon"
+        }
+      ]
+    }
+  ]
+}
