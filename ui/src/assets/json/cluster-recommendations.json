@@ -1,0 +1,16 @@
+[
+  {
+    "pod": "stargate-deployment",
+    "currentNode": "palash-node-4",
+    "recommendedNode": "palash-node-1",
+    "costSavings": 12,
+    "latencyImprovement": 350
+  },
+  {
+    "pod": "lemans-gateway",
+    "currentNode": "palash-node-1",
+    "recommendedNode": "palash-node-5",
+    "costSavings": 3.141,
+    "latencyImprovement": 213
+  }
+]
