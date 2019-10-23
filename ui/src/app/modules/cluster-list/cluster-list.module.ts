@@ -7,6 +7,9 @@ import { SharedModule } from '../shared/shared.modules';
 // This Module's Components
 import { ClusterListComponent } from './cluster-list.component';
 import { ClusterListService } from './cluster-list.service';
+import { ConnectionChartComponent } from './connection-chart/connection-chart.component';
+import { LatencyChartComponent } from './latency-chart/latency-chart.component';
+import { RecommendationsComponent } from './recommendations/recommendations.component';
 
 @NgModule({
   imports: [
@@ -16,10 +19,16 @@ import { ClusterListService } from './cluster-list.service';
     CommonModule
   ],
   declarations: [
-    ClusterListComponent
+    ClusterListComponent,
+    RecommendationsComponent,
+    ConnectionChartComponent,
+    LatencyChartComponent
   ],
   exports: [
-    ClusterListComponent
+    ClusterListComponent,
+    RecommendationsComponent,
+    ConnectionChartComponent,
+    LatencyChartComponent
   ],
   providers: [
     ClusterListService
