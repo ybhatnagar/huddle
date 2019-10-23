@@ -1,0 +1,8 @@
+<ng-container *ngIf="loadingGraph; else elseTPl">
+  <div class="spinner-contianer">
+    <span class="spinner spinner-md"></span>
+  </div>
+</ng-container>
+<ng-template #elseTPl>
+</ng-template>
+<div class="chart-container" #chartEl [hidden]="loadingGraph"></div>
