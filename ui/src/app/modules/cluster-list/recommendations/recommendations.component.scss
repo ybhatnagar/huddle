@@ -1,0 +1,56 @@
+.recommendations {
+  display: flex;
+
+  .before-chart,
+  .after-chart {
+    flex: 1;
+  }
+
+  h4 {
+    margin-bottom: 12px;
+  }
+
+  .recommendation-list {
+    flex: 1;
+
+    h4 {
+      text-align: center;
+    }
+  }
+
+  .recom-class {
+    border: 1px solid grey;
+    padding: 15px;
+    margin: 0 15px 15px;
+    border-radius: 5px;
+    position: relative;
+  }
+}
+
+.latency-chart {
+  min-height: 300px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+
+  .mask {
+    background: rgba(256, 256, 256, 0.6);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+  }
+
+  clr-icon {
+    z-index: 2;
+  }
+}

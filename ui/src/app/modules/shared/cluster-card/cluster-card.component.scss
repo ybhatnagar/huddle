@@ -1,0 +1,69 @@
+.cluster-card {
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px 0;
+  width: 550px;
+  cursor: pointer;
+
+  &:hover {
+    -webkit-box-shadow: 0px 0px 20px -5px rgba(102, 102, 102, 1);
+    -moz-box-shadow: 0px 0px 20px -5px rgba(102, 102, 102, 1);
+    box-shadow: 0px 0px 20px -5px rgba(102, 102, 102, 1);
+  }
+
+  &.selected {
+    border: 1px solid #60B515;
+    -webkit-box-shadow: 0px 0px 20px -5px rgba(201, 232, 175, 1);
+    -moz-box-shadow: 0px 0px 20px -5px rgba(201, 232, 175, 1);
+    box-shadow: 0px 0px 20px -5px rgba(201, 232, 175, 1);
+
+
+  }
+
+  .tick-icon {
+    position: absolute;
+    top: 2px;
+    left: -5px;
+  }
+
+  .cluster-info-wrapper {
+    display: flex;
+    align-items: center;
+
+    .cluster-icon {
+      width: 100px;
+    }
+
+    .right {
+      padding: 10px;
+      flex: 1;
+
+      .title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+
+      .pods-info {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+.signpost-content {
+  top: -59px !important;
+  max-width: 30rem !important;
+
+  ::ng-deep {
+    .signpost-wrap {
+      min-width: 600px;
+    }
+
+    .signpost-content-body {
+      max-height: 13rem;
+    }
+  }
+}

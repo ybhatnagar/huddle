@@ -1,0 +1,40 @@
+<div>
+  <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+    <h2 class="cluster-title">Clusters</h2>
+    <button class="btn btn-outline" (click)="openNewClusters = true">
+      <clr-icon shape="plus"></clr-icon>
+      ADD CLUSTER
+    </button>
+  </div>
+  <div>
+    <div *ngFor="let cluster of clusterList" class="cluster-wrapper">
+      <cluster-card [cluster]="cluster"></cluster-card>
+    </div>
+  </div>
+
+  <button class="btn btn-primary" [disabled]="!isSelected()" (click)="onAnalyise()">Analyise</button>
+</div>
+
+<clr-modal [(clrModalOpen)]="openNewClusters">
+  <h3 class="modal-title">Add New Kubernetes Cluster</h3>
+  <div class="modal-body">
+    <form clrForm>
+      <clr-input-container>
+        <label class="clr-col-md-4">Master Node URL</label>
+        <input clrInput placeholder="http://127.0.0.1:8080" name="name" [(ngModel)]="name" />
+      </clr-input-container>
+      <clr-input-container>
+        <label class="clr-col-md-4">Username</label>
+        <input clrInput placeholder="username" name="usname" [(ngModel)]="usname" />
+      </clr-input-container>
+      <clr-input-container>
+        <label class="clr-col-md-4">Password</label>
+        <input clrInput placeholder="password" name="pass" [(ngModel)]="pass" />
+      </clr-input-container>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="openNewClusters = false">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="openNewClusters = false">Save</button>
+  </div>
+</clr-modal>

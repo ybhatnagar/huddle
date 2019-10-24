@@ -1,0 +1,49 @@
+[
+  {
+    "name": "palash-node-1, palash-node-3",
+    "data": [
+      {
+        "name": "lemans-gateway",
+        "value": 120.00
+      },
+      {
+        "name": "lint-app",
+        "value": 86.123
+      },
+      {
+        "name": "lint-ui",
+        "value": 13
+      }
+    ]
+  },
+  {
+    "name": "palash-node-4,palash-node-2",
+    "data": [
+      {
+        "name": "stargate-deployment",
+        "value": 145.545
+      },
+      {
+        "name": "heimdall",
+        "value": 234.034
+      },
+      {
+        "name": "cost-analysis",
+        "value": 34.234
+      }
+    ]
+  },
+  {
+    "name": "palash-node-5",
+    "data": [
+      {
+        "name": "cortex",
+        "value": 30.234
+      },
+      {
+        "name": "Lemans-resources",
+        "value": 345.33
+      }
+    ]
+  }
+]
