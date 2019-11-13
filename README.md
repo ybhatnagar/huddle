@@ -10,5 +10,5 @@ Huddle generates smart and feasible recommendations for migration plans to reduc
 - Also if possible, provides a list of migrations in case user does not wants to migrate the application, but rather wants to reduce the latency by some intelligent migration.
 
 ## Prerequisites: 
-- You need to have Purser installed and running for your kubernetes cluster(s) which you need to optimize.
+- You need to have Purser installed and running for your kubernetes cluster(s) which you need to optimize. (https://github.com/vmware/purser)
 - You need to have your kubeconfig to be able to optimize the applications, and take the actions.
