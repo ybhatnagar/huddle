@@ -1,4 +1,4 @@
-# huddle
+# Huddle
 Huddle generates smart and feasible recommendations for migration plans to reduce overall latency in distributed containerized applications. More details can be found over in the wiki.
 
 ## Overview:
