@@ -1,5 +1,5 @@
-# k8s-network-latency-optimizer
-This repo holds the code base for generating smart and feasible recommendations for migration plans to reduce overall latency in distributed containerized applications. More details can be found over in the wiki.
+# huddle
+Huddle generates smart and feasible recommendations for migration plans to reduce overall latency in distributed containerized applications. More details can be found over in the wiki.
 
 ## Overview:
 - Understands the kubernetes cluster state through the kubeconfig provided. 
