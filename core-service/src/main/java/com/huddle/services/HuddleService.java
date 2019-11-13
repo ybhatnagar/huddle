@@ -8,8 +8,11 @@ import com.huddle.interaction.WavefrontService;
 import com.huddle.model.K8SClusterResponse;
 import com.huddle.model.GroupResponse;
 import com.huddle.model.dto.PodResponse;
+import com.huddle.model.dto.Recommendations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class HuddleService {
@@ -19,6 +22,9 @@ public class HuddleService {
 
     @Autowired
     private WavefrontService wavefrontService;
+
+    @Autowired
+    private RecommendationService recommendationService;
 
     public K8SClusterResponse getClusterInfo() {
         return purserService.getClusterInfo();
@@ -32,5 +38,9 @@ public class HuddleService {
 
     public PodResponse[] getPodResponse() {
         return purserService.getPodResponse();
+    }
+
+    public List<Recommendations> getRecommendations(GroupResponse toBeOptimized){
+        return recommendationService.getRecommendations(toBeOptimized);
     }
 }
