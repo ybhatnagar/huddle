@@ -12,4 +12,4 @@ Huddle generates smart and feasible recommendations for migration plans to reduc
 
 ## Prerequisites: 
 - You need to have Purser installed and running for your kubernetes cluster(s) which you need to optimize. (https://github.com/vmware/purser)
-- You need to have your kubeconfig to be able to optimize the applications, and take the actions.
+- You need to have your kubeconfig to be able to optimize the applications, and perform the actions.
