@@ -1,4 +1,7 @@
 # Huddle
+
+[![](https://github.com/ybhatnagar/huddle/workflows/Java%20CI/badge.svg)](https://github.com/ybhatnagar/huddle/actions)
+
 Huddle generates smart and feasible recommendations for migration plans to reduce overall latency in distributed containerized applications. More details can be found over in the wiki.
 
 ## Overview:
