@@ -24,7 +24,7 @@
     "@clr/icons": "2.2.2",
     "@clr/ui": "2.2.2",
     "@webcomponents/custom-elements": "^1.0.0",
-    "highcharts": "^7.2.0",
+    "highcharts": "^9.0.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
